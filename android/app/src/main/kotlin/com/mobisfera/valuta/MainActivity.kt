@@ -1,4 +1,4 @@
-package com.example.valuta
+package com.mobisfera.valuta
 
 import io.flutter.embedding.android.FlutterActivity
 
