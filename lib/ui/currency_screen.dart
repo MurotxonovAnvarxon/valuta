@@ -8,7 +8,7 @@ import 'package:valuta/util/language.dart';
 import '../lang/locale_keys.g.dart';
 import '../presenter/currency/currency_bloc.dart';
 import '../util/status.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
+// import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 class CurrencyScreen extends StatefulWidget {
   const CurrencyScreen({super.key});
@@ -19,9 +19,9 @@ class CurrencyScreen extends StatefulWidget {
 
 class _CurrencyScreenState extends State<CurrencyScreen> {
   final bloc = CurrencyBloc();
-  late BannerAd _bannerAd;
-  bool isAdLoaded = false;
-  var adUnit = "ca-app-pub-4924950656743042/4141857117";
+  // late BannerAd _bannerAd;
+  // bool isAdLoaded = false;
+  // var adUnit = "ca-app-pub-4924950656743042/4141857117";
   bool isSelect = false;
 
   // List<String> get _listGenderText => ["Male", "Female"];
@@ -53,7 +53,7 @@ class _CurrencyScreenState extends State<CurrencyScreen> {
   void dispose() {
     bloc.close();
     super.dispose();
-    _bannerAd.dispose();
+    // _bannerAd.dispose();
   }
 
   @override
@@ -61,7 +61,7 @@ class _CurrencyScreenState extends State<CurrencyScreen> {
     bloc.add(
         InitialCurrencyEvent(date: selectedDate.toString().substring(0, 10)));
     super.initState();
-    _loadAd();
+    // _loadAd();
   }
 
   Language _lang = Language.UZ;
@@ -73,34 +73,34 @@ class _CurrencyScreenState extends State<CurrencyScreen> {
     return data.ccyNmEn!;
   }
 
-  void _loadAd() {
-    final bannerAd = BannerAd(
-      size: AdSize.banner,
-      adUnitId: adUnit,
-      request: const AdRequest(),
-      listener: BannerAdListener(
-        // Called when an ad is successfully received.
-        onAdLoaded: (ad) {
-          if (!mounted) {
-            ad.dispose();
-            return;
-          }
-          setState(() {
-            isAdLoaded = true;
-            _bannerAd = ad as BannerAd;
-          });
-        },
-        // Called when an ad request failed.
-        onAdFailedToLoad: (ad, error) {
-          debugPrint('BannerAd failed to load: $error');
-          ad.dispose();
-        },
-      ),
-    );
-
-    // Start loading.
-    bannerAd.load();
-  }
+  // void _loadAd() {
+  //   final bannerAd = BannerAd(
+  //     size: AdSize.banner,
+  //     adUnitId: adUnit,
+  //     request: const AdRequest(),
+  //     listener: BannerAdListener(
+  //       // Called when an ad is successfully received.
+  //       onAdLoaded: (ad) {
+  //         if (!mounted) {
+  //           ad.dispose();
+  //           return;
+  //         }
+  //         setState(() {
+  //           isAdLoaded = true;
+  //           _bannerAd = ad as BannerAd;
+  //         });
+  //       },
+  //       // Called when an ad request failed.
+  //       onAdFailedToLoad: (ad, error) {
+  //         debugPrint('BannerAd failed to load: $error');
+  //         ad.dispose();
+  //       },
+  //     ),
+  //   );
+  //
+  //   // Start loading.
+  //   bannerAd.load();
+  // }
 
   @override
   Widget build(BuildContext buildContext) {
@@ -376,14 +376,14 @@ class _CurrencyScreenState extends State<CurrencyScreen> {
                         Text(" =>${state.data?[index].rate ?? 'null'} UZS|",
                             style: TextStyle(fontSize: 14)),
                         Spacer(),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 8.0),
-                          child: Image.asset(
-                            "assets/images/date.png",
-                            width: 20,
-                            height: 20,
-                          ),
-                        ),
+                        // Padding(
+                        //   padding: const EdgeInsets.only(left: 8.0),
+                        //   child: Image.asset(
+                        //     "assets/images/date.png",
+                        //     width: 20,
+                        //     height: 20,
+                        //   ),
+                        // ),
                         Padding(
                           padding: const EdgeInsets.only(left: 8.0),
                           child: Text(state.data?[index].date ?? 'null',
@@ -396,13 +396,13 @@ class _CurrencyScreenState extends State<CurrencyScreen> {
                     )
                   ]),
                   children: [
-                    if (isAdLoaded)
-                      Container(
-                        decoration: BoxDecoration(color: Colors.black),
-                        height: _bannerAd.size.height.toDouble(),
-                        width: _bannerAd.size.width.toDouble(),
-                        child: AdWidget(ad: _bannerAd),
-                      ),
+                    // if (isAdLoaded)
+                    //   Container(
+                    //     decoration: BoxDecoration(color: Colors.black),
+                    //     height: _bannerAd.size.height.toDouble(),
+                    //     width: _bannerAd.size.width.toDouble(),
+                    //     child: AdWidget(ad: _bannerAd),
+                    //   ),
                     Align(
                         alignment: Alignment.topRight,
                         child: Padding(

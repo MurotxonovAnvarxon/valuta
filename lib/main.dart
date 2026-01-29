@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:valuta/ui/currency_screen.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:firebase_core/firebase_core.dart';
+// import 'package:google_mobile_ads/google_mobile_ads.dart';
+// import 'package:firebase_core/firebase_core.dart';
 import 'lang/codegen_loader.g.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
-  await MobileAds.instance.initialize(
-  );
+  // await MobileAds.instance.initialize(
+  // );
   // await Firebase.initializeApp();
   runApp(
     EasyLocalization(
